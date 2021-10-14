@@ -1,5 +1,5 @@
 {
-  "type": "postgresql",
+  "type": "postgres",
   "host": "ec2-52-205-45-219.compute-1.amazonaws.com",
   "port": 5432,
   "username": "amauigdnhqfivu",
