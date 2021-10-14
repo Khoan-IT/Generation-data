@@ -1,10 +1,10 @@
 {
   "type": "mysql",
-  "host": "localhost",
-  "port": 3310,
-  "username": "root",
-  "password": "",
-  "database": "labeldata",
+  "host": "ec2-52-205-45-219.compute-1.amazonaws.com",
+  "port": 5432,
+  "username": "amauigdnhqfivu",
+  "password": "ad7e34065d910f7bf80a81a26f39e1ed1588396e024051fd3f2fe281651b2c2e",
+  "database": "dmn2p935t1mag",
   "entities": ["dist/models/*.entity{.ts,.js}"],
   "synchronize": true
 }
