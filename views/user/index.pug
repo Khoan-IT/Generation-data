@@ -1,0 +1,97 @@
+extends ../layout 
+block content
+    section.content-header
+        .container-fluid
+            .row.mb-2
+                .col-sm-6
+                    h1 QUẢN LÍ TÀI KHOẢN
+                .col-sm-6
+                    ol.breadcrumb.float-sm-right
+                        li.breadcrumb-item
+                            a(href='/') Home
+                        li.breadcrumb-item.active 
+                            a(href='/faculty') Quản lí tài khoản
+        section.content
+          .container-fluid
+                .row
+                    .col-12  
+                        .card
+                            .card-body
+                                .row
+                                    .col-sm-12
+                                        button.btn.btn-primary(type='button' data-toggle='modal' data-target='#addUserModal')
+                                            | Thêm tài khoản
+                                        #addUserModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+                                            .modal-dialog(role='document')
+                                                .modal-content
+                                                    .modal-header
+                                                        h5#exampleModalLabel.modal-title Thêm tài khoản
+                                                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                                            span(aria-hidden='true') ×
+                                                    form(action='/user/add', method="post")
+                                                        .modal-body
+                                                            .form-group
+                                                                label(for='exampleInputEmail1') Nhập email
+                                                                input#exampleInputEmail1.form-control(type='email', placeholder='Email', name = 'email')
+                                                            .form-group
+                                                                label(for='exampleInputPassword1') Nhập password
+                                                                input#exampleInputPassword1.form-control(type='password', placeholder='Password', name = 'password')
+                                                        .modal-footer.text-center
+                                                            button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng
+                                                            button.btn.btn-primary(type='submit') Thêm mới   
+                                .row                       
+                                    .col-sm-12                    
+                                        table#tab-faculty.table.table-bordered.table-striped
+                                            thead
+                                                tr
+                                                    th Email
+                                                    th Mật khẩu
+                                                    th.text-center Cập nhật lần cuối
+                                                    th.text-center Thao tác
+                                            tbody 
+                                                each user in userList 
+                                                    tr 
+                                                        td=user.email
+                                                        td=user.password
+                                                        td.text-center=user.updateAt
+                                                        td.text-center
+                                                            btn.btn-edit.btn.btn-primary.btn-xs(style='margin-right: 5px',data-email=user.email,data-password=user.password) 
+                                                                i.fas.fa-pencil-alt
+                                                            btn.btn-delete.btn.btn-danger.btn-xs(data-email=user.email)  
+                                                                i.fas.fa-trash
+                                       
+                                        #editUserModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='editUserModal' aria-hidden='true')
+                                            .modal-dialog(role='document')
+                                                .modal-content
+                                                    .modal-header
+                                                        h5.modal-title Chỉnh sửa
+                                                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                                            span(aria-hidden='true') &times;
+                                                    form(action="/user/edit", method="post")
+                                                        .modal-body
+                                                            .form-group
+                                                                label Email
+                                                                input.form-control(type='email', placeholder='Email', name='email')
+                                                            .form-group
+                                                                label Mật khẩu
+                                                                input.form-control(type='password', placeholder='Password', name='password')
+                                                        .modal-footer
+                                                            button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
+                                                            button.btn.btn-primary(type='submit') Cập nhật
+
+                                        #deleteUserModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='deleteUserModal' aria-hidden='true')
+                                            .modal-dialog(role='document')
+                                                .modal-content.bg-danger
+                                                    .modal-header
+                                                        h5.modal-title Xóa
+                                                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                                            span(aria-hidden='true') &times;
+                                                    form(action="/user/delete", method="post")
+                                                        .modal-body
+                                                            input(type="hidden", name="email")
+                                                            p Bạn có chắc chắn muốn xóa tài khoản này ?
+                                                        .modal-footer
+                                                            button.btn.btn-outline-light(type='button' data-dismiss='modal') Đóng lại
+                                                            button.btn.btn-outline-light(type='submit') Xác nhận                               
+block script
+    script(src='/javascript/user.js')

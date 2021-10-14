@@ -1,0 +1,50 @@
+extends ../layout 
+
+block content 
+	section.content-header
+		.container-fluid
+			.row.mb-2
+				.col-sm-6
+					h1 NHÃN DỮ LIỆU
+	section.content
+		.container-fluid
+			.row
+				.col-12
+					.card
+						.card-body
+							.row 
+								.col-12 
+							.row
+								.col-12
+									table#tab-label.table.table-bordered.table-striped
+										thead
+											tr
+												th TT1
+												th TT2
+												th TT3
+												th TT4
+												th TT5
+												th TT6
+												th TT7
+												th TT8
+												th TT9
+												th TT10
+												th TT11
+												th Nhãn
+										tbody
+											each data in dataList 
+												tr 
+													td=data.att1
+													td=data.att2
+													td=data.att3
+													td=data.att4
+													td=data.att5
+													td=data.att6
+													td=data.att7
+													td=data.att8
+													td=data.att9
+													td=data.att10
+													td=data.att11
+													td=data.label
+block script 
+	script(src="./javascript/admin.js") 
