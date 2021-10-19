@@ -42,17 +42,17 @@ $('.testbtn').click(function (e) {
     let att11 = $('#tab-data').DataTable().row(i).data()[10];
     let label = $(`#select${i}`).val();
     let data = {
-      att1: att1,
-      att2: att2,
-      att3: att3,
-      att4: att4,
-      att5: att5,
-      att6: att6,
-      att7: att7,
-      att8: att8,
-      att9: att9,
-      att10: att10,
-      att11: att11,
+      Hometown: att1,
+      Current_Home: att2,
+      Salary: att3,
+      Job: att4,
+      Degree: att5,
+      Age: att6,
+      Num_Relative: att7,
+      Credit: att8,
+      Vehicle: att9,
+      Marriage: att10,
+      Interest: att11,
       label: label,
     };
     // array.append(data);
@@ -63,6 +63,12 @@ $('.testbtn').click(function (e) {
     type: 'POST',
     data: { ...array },
   }).then(() => {
+    window.location.href = '/gendata';
+  })
+});
+
+$('.gereratedata').click(function (e) {
+  $.get('/gendata').then(() => {
     window.location.href = '/gendata';
   });
 });

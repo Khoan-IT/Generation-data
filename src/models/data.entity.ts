@@ -6,37 +6,37 @@ export class Data {
   id: number;
 
   @Column()
-  att1: number;
+  Hometown: string;
 
   @Column()
-  att2: number;
+  Current_Home: string;
 
   @Column()
-  att3: number;
+  Salary: string;
 
   @Column()
-  att4: number;
+  Job: string;
 
   @Column()
-  att5: number;
+  Degree: string;
 
   @Column()
-  att6: number;
+  Age: string;
 
   @Column()
-  att7: number;
+  Num_Relative: string;
 
   @Column()
-  att8: number;
+  Credit: string;
 
   @Column()
-  att9: number;
+  Vehicle: string;
 
   @Column()
-  att10: number;
+  Marriage: string;
 
   @Column()
-  att11: number;
+  Interest: string;
 
   @Column()
   label: string;
