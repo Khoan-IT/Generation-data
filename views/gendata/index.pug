@@ -14,8 +14,8 @@ block content
 						.card-body
 							.row 
 								.col-12 
-									button.testbtn.btn.btn-primary(type='button' style = "margin: -5px 10px 10px 10px")
-										| Sinh dữ liệu
+									//- button.testbtn.btn.btn-primary(type='button' style = "margin: -5px 10px 10px 10px")
+									//- 	| Sinh dữ liệu
 									button.testbtn.btn.btn-primary(type='button' style = "margin: -5px 10px 10px 10px")
 										| Gửi dữ liệu
 							.row
@@ -44,6 +44,27 @@ block content
 														select.myselect2.select2.form-control(name = "label" style="width: 100%;" id = `select${index}`)
 															each labelItem in labelList
 																option(value=labelItem.label)=labelItem.label
+
+					div
+						br
+						h4.timeline-header
+							center(style='color:#FF9999')
+								| Cảm ơn sự quan tâm và giúp đỡ từ mọi người. Chúc mọi người có một ngày làm việc vui vẻ!
+						br
+						h3.timeline-header
+							center(style='color:#00CC99')
+								|Hướng dẫn đánh nhãn dữ liệu
+						.timeline-body
+							center
+								| Bước 1: Đọc các cột dữ liệu có sẵn trong bảng
+								br
+								| Bước 2: Chọn nhãn cho từng hàng dữ liệu
+								br
+								| Bước 3: Chọn "Gửi dữ liệu" để lưu lại dữ liệu đã đánh nhãn
+								br
+						.timeline-body
+							center(style='color:#990000')
+								| Lưu ý: Khi chọn "Gửi dữ liệu" bảng dữ liệu cũ sẽ mất đi và được thay thế bằng một bảng dữ liệu mới chưa được gán nhãn
 
 
 block script 
